@@ -13,7 +13,6 @@ Welcome to the Online Exam System, a comprehensive web-based application designe
         Adds questions to the question bank.
         Creates quizzes by selecting questions.
         
-
     Student:
         Registers and logs in using React.js-based UI.
         Views and attempts quizzes created by teachers.
@@ -48,3 +47,13 @@ Welcome to the Online Exam System, a comprehensive web-based application designe
 - **Frontend:**
   - React.js
   - Angular
+ 
+## Glimpses of the App
+
+![Screenshot (65)](https://github.com/tejas-mutyalwar/Online-Exam-System/assets/59694591/170b973f-f156-47d9-bea9-e0f9515d5b91)
+![Screenshot (66)](https://github.com/tejas-mutyalwar/Online-Exam-System/assets/59694591/02e961bc-46f7-4d99-88fd-b5431a5f6a57)
+![Screenshot (67)](https://github.com/tejas-mutyalwar/Online-Exam-System/assets/59694591/74d448d2-86e5-4e5e-87fe-5b15b927a0b6)
+![Screenshot (68)](https://github.com/tejas-mutyalwar/Online-Exam-System/assets/59694591/51ba8da2-def5-4e6a-9201-e543f5a670a7)
+![Screenshot (69)](https://github.com/tejas-mutyalwar/Online-Exam-System/assets/59694591/a8f2be11-a720-4496-8e5c-b19816d290c1)
+![Screenshot (70)](https://github.com/tejas-mutyalwar/Online-Exam-System/assets/59694591/ea618968-b5b3-41f0-b17c-726c01f5bac4)
+
