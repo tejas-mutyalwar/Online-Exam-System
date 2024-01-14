@@ -1,0 +1,54 @@
+<div mat-subheader class="text-center"> <span class = "font-family font-bolder-larger font-color"> Your Profile </span></div>
+
+<mat-card *ngIf="user" class="mt10">
+
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container mt10">
+                <div class="container text-center">
+                    <img [src]="profileImagePath" alt="" class="profile-image">
+                    <br>
+                    <br>
+                    <b class="font-color font-family font-bold-large"> {{ user.firstName }} {{user.lastName}} </b>
+                </div>
+
+                <div class="row mt20">
+                    <div class="col-md-10 offset-md-1">
+                        <table class="table text-center font-color font-family font-bolder-larger">
+
+                            <tr>
+                                <td>User Name</td>
+                                <td> {{ user.userName }} </td>
+                            </tr>
+
+                            <tr>
+                                <td>User Id</td>
+                                <td>EXAM{{user.id}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Phone</td>
+                                <td>{{ user.phone }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Role</td>
+                                <td>{{ user.authorities[0].authority }}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Status</td>
+                                <td>{{user.enabled?"ACTIVE":"INACTIVE"}}</td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="offset-md-5 text-align mt20 mb20">
+        <button mat-raised-button color="primary" style="margin-right: 4px;"> UPDATE </button>
+        <button mat-raised-button color="accent"> SHARE </button>
+      </mat-card-actions>
+</mat-card>

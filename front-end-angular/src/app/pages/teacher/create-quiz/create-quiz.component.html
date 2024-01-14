@@ -1,0 +1,79 @@
+<div mat-subheader class="text-center"> <span class = "font-family font-bolder-larger font-color"> Add Quiz </span></div>
+
+<mat-card class = "mt10">
+    <mat-card-content>
+        <!-- <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ quiz | json }} <br> -->
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <form (ngSubmit) = "formSubmit()">     
+                        <mat-form-field appearance = "fill" class="container mt20">
+                            <mat-label> Title </mat-label>
+                            <input matInput autofocus type="text" name="title" [(ngModel)] = "quiz.title" placeholder="" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance = "fill" class = "container">
+                            <mat-label> Description </mat-label>
+                            <textarea matInput name="description" [(ngModel)] = "quiz.description" placeholder="" rows = "5" ></textarea>
+                        </mat-form-field>
+
+                        <mat-form-field appearance = "fill" class="container mt20">
+                            <mat-label>Select Category</mat-label>
+                            <mat-select name="category" [(ngModel)] = "quiz.category" required>
+                              <mat-option *ngFor="let category of categories" [value] = "category">
+                                {{category.title}}
+                              </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <!-- <mat-form-field appearance = "fill" class="col-md-6">
+                            <mat-label> Max Marks </mat-label>
+                            <input matInput type="number" name = "maxMarks" [(ngModel)] = "quiz.maxMarks" required>
+                        </mat-form-field> -->
+
+                        <!-- <mat-form-field appearance = "fill" class="col-md-6">
+                            <mat-label> Number of Questions </mat-label>
+                            <input matInput type="number" name="numberOfQuestions" [(ngModel)] = "quiz.numberOfQuestions" required>
+                        </mat-form-field> -->
+
+                        <mat-form-field appearance = "fill" class="container">
+                            <mat-label>Add Questions</mat-label>
+                            <mat-select multiple (change)="onChange($event)" name="questions" [(ngModel)]="quiz.questions" required>
+                                <mat-option  *ngFor="let question of questions" [value]="question">
+                                    {{question.questionContent}}
+                                </mat-option>   
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-slide-toggle name = "active"  required class="mt10 ml20" [(ngModel)] = "quiz.active">
+                            Publish Status
+                        </mat-slide-toggle>
+                
+                        <mat-card class="container mt10" *ngFor="let selectedQuestion of selectedQuestions">
+                            <mat-list>
+                                <mat-list-item>
+                                    <mat-icon matListItemIcon>question_mark</mat-icon>
+                                    <div matListItemTitle>{{selectedQuestion.questionContent}}</div>
+                                    <div class="col-md-3" matListItemLine>1. {{selectedQuestion.options[0]}}</div>
+                                    <div class="col-md-3" matListItemLine>2. {{selectedQuestion.options[1]}}</div>
+                                    <div class="col-md-3" matListItemLine>3. {{selectedQuestion.options[2]}}</div>
+                                    <div class="col-md-3" matListItemLine>4. {{selectedQuestion.options[3]}}</div>
+                                    
+                                </mat-list-item>
+                            </mat-list>
+                        </mat-card>
+
+                        <div class="container text-center mt20">
+                            <button type="submit" mat-raised-button color="primary"> Add </button>
+                            <button type="reset" class="ml20" mat-raised-button color="warn"> Reset </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>
+
+{{quiz | json}}

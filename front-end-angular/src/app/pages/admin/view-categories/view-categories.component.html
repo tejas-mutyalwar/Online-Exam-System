@@ -1,0 +1,16 @@
+<div mat-subheader class="text-center"> <span class = "font-family font-bolder-larger font-color"> All Categories </span></div>
+
+
+<mat-card class="mt10" *ngFor="let category of categories">
+    <mat-list>
+        <mat-list-item>
+            <mat-icon matListItemIcon>category</mat-icon>
+            <div matListItemTitle>{{category.title}}</div>
+            <div matListItemLine>{{category.description}}</div>
+        </mat-list-item>
+    </mat-list>
+</mat-card>
+
+<div class="container text-center mt20 mb20">
+    <button mat-raised-button color="primary" routerLink="/admin/create-category">Add New Category</button>
+</div>

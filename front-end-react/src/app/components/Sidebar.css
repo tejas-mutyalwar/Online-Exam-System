@@ -1,0 +1,8 @@
+.listItem {
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .listItem:hover,
+  .listItem:active {
+    background-color: #a429b5;
+  }

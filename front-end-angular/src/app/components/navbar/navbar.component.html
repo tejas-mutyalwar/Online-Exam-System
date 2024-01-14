@@ -1,0 +1,32 @@
+<mat-toolbar color = "primary" style="width: 100%;  overflow: hidden; background-image: linear-gradient(135deg, #424fd9, #7636be);">
+  <a [routerLink]="'/'" mat-icon-button aria-label="Example icon-button with menu icon">
+    <mat-icon>menu_book</mat-icon>
+  </a>
+  <a [routerLink]="'/'" mat-button  class = "font-bolder-larger" style="margin-top: 4px; background-image: linear-gradient(135deg, #424fd9, #814ac0);">ExamFront</a>
+
+  <span class="example-spacer"></span>
+
+  <a *ngIf="!isLoggedIn" [routerLink]="'/login'" mat-button>
+    <b> Login </b>
+  </a>
+
+  <a *ngIf="!isLoggedIn" [routerLink]="'/signup'" mat-button class="ml20 mr20">
+    <b> Register </b>
+  </a>
+
+  <a *ngIf="isLoggedIn && isAdmin && !isTeacher && !isStudent" mat-button routerLink="/admin/profile">
+    <b> {{ login.getUser().username }} </b> 
+  </a>
+
+  <a *ngIf="isLoggedIn && isTeacher && !isStudent && !isAdmin" mat-button routerLink="/teacher/profile">
+    <b> {{ login.getUser().username }} </b>
+  </a>
+
+  <a *ngIf="isLoggedIn && isStudent && !isAdmin && !isTeacher" mat-button routerLink="/user/profile">
+    <b> {{ login.getUser().username }} </b>
+  </a>
+
+  <a *ngIf="isLoggedIn" (click)="logout()" mat-button>
+    <b> Logout </b>
+  </a>
+</mat-toolbar>

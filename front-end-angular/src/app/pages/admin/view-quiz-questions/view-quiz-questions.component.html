@@ -1,0 +1,77 @@
+<div mat-subheader class="text-center"> <span class = "font-family font-bolder-larger font-color"> Questions of {{quizTitle}} </span></div>
+
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="container text-center">
+                <button mat-raised-button [routerLink] = "['/admin/create-question/', quizId, quizTitle]" color="primary"> Add Question </button>
+            </div>
+
+            <mat-card *ngFor = "let question of questions; let i = index" class="mt20">
+                <mat-card-content>
+                    <!-- <p>
+                        <b class = "font-family font-color"> Q{{i+1}}.</b>
+                        <b class = "ml10 font-family font-color" [innerHTML] = "question.content"></b>
+                    </p> -->
+
+                    <div class="row">
+                        <div class="col-md-10">
+                            <b class = "font-family font-color"> Q{{i+1}}.</b>
+                            <b class = "ml10 font-family font-color container" [innerHTML] = "question.content"></b>
+                        </div>
+                    </div>
+
+                    <div *ngIf = "question.image != ''" class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="../../../../assets/cpp_question.png" alt="a cpp question">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class = "font-family font-color"> 1) {{ question.optionOne }} </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class = "font-family font-color"> 2) {{ question.optionTwo }} </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class = "font-family font-color"> 3) {{ question.optionThree }} </p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class = "font-family font-color"> 4) {{ question.optionFour }} </p>
+                            </div>
+                        </div>
+
+                        <mat-divider></mat-divider>
+                        <br>
+                        <p class = "font-family font-color" style="text-align: bottom;">
+                            <b> Correct Answer :- </b> &nbsp; {{question.answer}}
+                        </p>
+                    
+                    </div>
+
+                </mat-card-content>
+
+                <mat-card-actions class="col-md-10 offset-md-4">
+                    <button mat-raised-button color = "primary" class="mb10" [routerLink] = "['/admin/modify-question/', question.questionId]"> Update </button>
+                    <button mat-raised-button color = "warn" class = "ml20 mb10" (click) = "removeQuestion(question.questionId)"> Delete </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+

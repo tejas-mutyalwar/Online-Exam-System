@@ -1,0 +1,14 @@
+.full-width {
+    width: 100%;
+}
+
+.width80 {
+    width: 80%;
+}
+
+.profile-image{
+    max-width: 200px;
+    max-height: 200px;
+    border: 2px solid #3F51B5;
+    border-radius: 50%;
+}

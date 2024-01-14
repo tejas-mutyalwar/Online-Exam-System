@@ -1,0 +1,70 @@
+<div mat-subheader class="text-center"> <span class = "font-family font-bolder-larger font-color"> Update Question </span></div>
+
+<mat-card class = "mt10">
+    <mat-card-content>
+        <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ question | json }} <br>
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <form *ngIf = "question" (submit) = "modifyQuestion()">   
+                        
+                        <!-- <mat-form-field appearance = "fill" class = "container">
+                            <mat-label> Content </mat-label>
+                            <textarea matInput autofocus name="content" [(ngModel)] = "question.content" placeholder="" rows = "4" ></textarea>
+                        </mat-form-field> -->
+
+                        <ckeditor 
+                            [editor] = "Editor" 
+                            name = "content"
+                            [(ngModel)] = "question.content"
+                            class="container">
+                        </ckeditor>
+
+                        <mat-form-field appearance = "fill" class="container mt20">
+                            <mat-label> Image </mat-label>
+                            <input matInput type="text" name="image" [(ngModel)] = "question.image" placeholder="" >
+                        </mat-form-field>
+
+                        <mat-form-field appearance = "fill" class="col-md-6">
+                            <mat-label> Option 1 </mat-label>
+                            <input matInput type="text" name = "optionOne" [(ngModel)] = "question.optionOne" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance = "fill" class="col-md-6">
+                            <mat-label> Option 2 </mat-label>
+                            <input matInput type="text" name = "optionTwo" [(ngModel)] = "question.optionTwo" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance = "fill" class="col-md-6">
+                            <mat-label> Option 3 </mat-label>
+                            <input matInput type="text" name = "optionThree" [(ngModel)] = "question.optionThree" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance = "fill" class="col-md-6">
+                            <mat-label> Option 4 </mat-label>
+                            <input matInput type="text" name = "optionFour" [(ngModel)] = "question.optionFour" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance = "fill" class = "container">
+                            <mat-label>Select Answer</mat-label>
+                            <mat-select [(ngModel)]="question.answer" name="answer">
+                              <mat-option *ngIf = "question.optionOne" [value] = "question.optionOne"> {{question.optionOne}} </mat-option>
+                              <mat-option *ngIf = "question.optionTwo" [value] = "question.optionTwo"> {{question.optionTwo}} </mat-option>
+                              <mat-option *ngIf = "question.optionThree" [value] = "question.optionThree"> {{question.optionThree}} </mat-option>
+                              <mat-option *ngIf = "question.optionFour" [value] = "question.optionFour"> {{question.optionFour}} </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        <div class="container text-center">
+                            <button type="submit" mat-raised-button color="primary"> Update </button>
+                            <button type="reset" mat-raised-button color="warn" class="ml20"> Reset </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>
+<!-- [routerLink] = "['/admin/modify-question/', question]" -->

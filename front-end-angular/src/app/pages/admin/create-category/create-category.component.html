@@ -1,0 +1,31 @@
+<div mat-subheader class="text-center"> <span class = "font-family font-bolder-larger font-color"> Add Category </span></div>
+
+<mat-card class = "mt10">
+    <mat-card-content>
+        <!-- <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; {{ category | json }} <br> -->
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <form (ngSubmit)="formSubmit()">     
+                        <mat-form-field appearance = "fill" class="container mt20">
+                            <mat-label>Title</mat-label>
+                            <input matInput autofocus type="text" name="title" [(ngModel)] = "category.title" placeholder="" required>
+                        </mat-form-field>
+
+                        <mat-form-field appearance = "fill" class="container">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput name="description" [(ngModel)] = "category.description" placeholder="" rows = "8" required></textarea>
+                        </mat-form-field>
+
+                        <div class="container text-center">
+                            <button type="submit" mat-raised-button color="primary"> Add </button>
+                            <button type="reset" class="ml20" mat-raised-button color="warn"> Reset </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>

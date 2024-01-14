@@ -1,0 +1,40 @@
+<div mat-subheader class="text-center"> 
+    <span class="font-family font-bolder-larger font-color"> Menu </span>
+</div>
+
+<mat-card >
+    <mat-action-list class="items-center">
+        <div>
+            <button mat-list-item routerLink="/user/home">
+                <mat-icon style="vertical-align: bottom;"> home </mat-icon>
+                <b class="font-color font-family"> Home </b>
+            </button>
+            <hr class="hr-divider">
+        </div>
+
+        <div>
+            <button mat-list-item routerLink="/user/profile">
+                <mat-icon style="vertical-align: bottom;"> account_circle </mat-icon>
+                <b class="font-color font-family"> Profile </b>
+            </button>
+            <hr class="hr-divider">
+        </div>
+
+        <div>
+            <button mat-list-item [routerLink] = "['/user/quizzes/', -1]">
+                <mat-icon style="vertical-align: bottom;"> quiz </mat-icon>
+                <b class="font-color font-family"> Quizzes </b>
+            </button>
+            <hr class="hr-divider">
+        </div>
+
+        <!-- <div *ngFor = "let category of categories; let lastItem = last;">
+            <button mat-list-item [routerLink]="['/user/quizzes/', category.categoryId]" >
+                <mat-icon style="vertical-align: bottom;"> category </mat-icon>
+                <b class="font-color font-family"> {{category.title}} </b>
+            </button>
+            <hr class="hr-divider" *ngIf = "!lastItem">
+        </div> -->
+
+    </mat-action-list>
+</mat-card>

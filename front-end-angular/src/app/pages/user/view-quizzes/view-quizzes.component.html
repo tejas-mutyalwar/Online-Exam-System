@@ -1,0 +1,44 @@
+<div mat-subheader class="text-center"> <span class="font-family font-bolder-larger font-color"> All Quizzes </span>
+</div>
+
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Add a new div to create two columns using Bootstrap grid system -->
+            <div class="col-md-4 mt20" *ngFor="let quiz of quizzes">
+                <!-- The rest of the card code remains the same -->
+                <mat-card class="mt10 mb10 mat-card-custom">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title class="font-family font-color font-bolder-larger">{{ quiz.title}}</mat-card-title>
+                        <mat-card-subtitle class="font-family font-color font-bold-large">{{ quiz.category.title
+                            }}</mat-card-subtitle>
+                    </mat-card-header>
+
+                    <mat-card-content class="mb10">
+                        <b class="font-family font-color">{{ quiz.description }}</b><br>
+                        <div class="mt10">
+                            <b class="font-family font-color">Max Marks: {{ quiz.maxMarks }}</b>
+                            <b class="ml20 font-family font-color">No. of Questions: {{ quiz.numberOfQuestions }}</b>
+                        </div>
+                        <br>
+                        <hr>
+                    </mat-card-content>
+
+                    
+
+                    <mat-card-actions class="mb10" style="display: flex; justify-content: center; align-items: center;">
+                        <button mat-raised-button [routerLink] = "['/user/instructions/', quiz.quizId, quiz.title]" color="primary"> View </button>
+                        <button mat-raised-button class="ml20" [routerLink] = "['/user/instructions/', quiz.quizId, quiz.title]" color="primary"> Start </button>
+                    </mat-card-actions>
+
+                </mat-card>
+            </div>
+
+            <div class="col-md-12 text-center mt20" *ngIf = "quizzes.length == 0">
+                <b class="font-family font-color font-bolder-larger"> This Category does not have a Quiz yet</b>
+            </div>
+
+        </div>
+    </div>
+</div>

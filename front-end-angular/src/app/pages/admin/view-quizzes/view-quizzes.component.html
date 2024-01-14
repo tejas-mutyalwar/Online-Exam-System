@@ -1,0 +1,40 @@
+<div mat-subheader class="text-center"> <span class = "font-family font-bolder-larger font-color"> All Quizzes </span></div>
+
+<!-- <div class="container text-center mt20">
+    <button mat-raised-button color="primary" routerLink="/admin/create-quiz"> Add Quiz </button>
+</div> -->
+
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Add a new div to create two columns using Bootstrap grid system -->
+        <div class="col-md-4 mt20" *ngFor="let quiz of quizzes">
+          <!-- The rest of the card code remains the same -->
+          <mat-card class="mt10 mb10 mat-card-custom">
+  
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title class="font-family font-color font-bolder-larger">{{ quiz.title }}</mat-card-title>
+              <mat-card-subtitle class="font-family font-color font-bold-large">{{ quiz.category.title }}</mat-card-subtitle>
+            </mat-card-header>
+  
+            <mat-card-content class="mb10">
+              <b class="font-family font-color">{{ quiz.description }}</b><br>
+              <div class="mt10">
+                <b class="font-family font-color">Max Marks: {{ quiz.maxMarks }}</b>
+                <b class="ml20 font-family font-color">No. of Questions: {{ quiz.numberOfQuestions }}</b>
+              </div>  
+            </mat-card-content>
+  
+            <mat-divider></mat-divider>
+  
+            <mat-card-actions style="display: flex; justify-content: center; align-items: center;">
+              <button mat-raised-button [routerLink]="['/admin/view-quiz-questions/', quiz.quizId, quiz.title]" color="primary">Questions</button>
+              <button mat-raised-button [routerLink]="['/admin/modify-quiz/', quiz.quizId]" color="primary" class="ml20">Update Quiz</button>
+              <button mat-raised-button color="warn" class="ml20" (click)="deleteQuiz(quiz.quizId)">Delete Quiz</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+</div>
